@@ -12,8 +12,9 @@ export type State = {
 export const reducer = combineReducers<State, Action>({
   reduxCounter: (state = 0, action) => {
     switch (action.type) {
-      case getType(countersActions.increment):
+      case getType(countersActions.increment): {
         return state + 1; // action is type: { type: "INCREMENT"; }
+      }
 
       case getType(countersActions.add):
         return state + action.payload; // action is type: { type: "ADD"; payload: number; }
