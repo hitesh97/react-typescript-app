@@ -9,12 +9,12 @@ interface StoreEnhancerState { }
 export interface RootState extends StoreEnhancerState {
   router: RouterState;
   counters: CountersState;
-  ToDoreducer: ToDoState
+  ToDoreducer: ToDoState;
 }
 
 import { RootAction } from './root-action';
 export const rootReducer = combineReducers<RootState, RootAction>({
   router,
   counters,
-  ToDoreducer
+  ToDoreducer,
 });

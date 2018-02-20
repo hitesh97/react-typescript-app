@@ -27,7 +27,7 @@ export const reducer = combineReducers<State, Action>({
 });
 
 export type ToDoState = {
-  readonly toDos: Array<ITodo>;
+  readonly toDos: ITodo[];
 };
 
 export const ToDoreducer = combineReducers<ToDoState, Action>({
@@ -37,7 +37,7 @@ export const ToDoreducer = combineReducers<ToDoState, Action>({
         const newTodo: Todo  = new Todo();
         newTodo.text = action.payload;
         newTodo.id = state.length + 1;
-        return [...state, newTodo]
+        return [...state, newTodo];
       }
       case getType(countersActions.RemoveTodo): {
         return state.filter(x => x.id !== action.payload);
@@ -48,5 +48,3 @@ export const ToDoreducer = combineReducers<ToDoState, Action>({
     }
   },
 });
-
-

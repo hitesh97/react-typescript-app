@@ -5,9 +5,8 @@ export interface ITodo {
     isDone: boolean;
   }
 
-  export class Todo implements ITodo {
+export class Todo implements ITodo {
     id: number;
     text: string;
     isDone: boolean = false;
   }
-  
