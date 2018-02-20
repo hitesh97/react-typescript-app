@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { getType, getReturnOfExpression } from 'typesafe-actions';
+import { ITodo, Todo } from '../todo/interfaces';
 
 import * as countersActions from './actions';
 const returnsOfActions = Object.values(countersActions).map(getReturnOfExpression);
@@ -24,3 +25,28 @@ export const reducer = combineReducers<State, Action>({
     }
   },
 });
+
+export type ToDoState = {
+  readonly toDos: Array<ITodo>;
+};
+
+export const ToDoreducer = combineReducers<ToDoState, Action>({
+  toDos: (state: ITodo[] = new Array<ITodo>(), action) => {
+    switch (action.type) {
+      case getType(countersActions.AddTodo): {
+        const newTodo: Todo  = new Todo();
+        newTodo.text = action.payload;
+        newTodo.id = state.length + 1;
+        return [...state, newTodo]
+      }
+      case getType(countersActions.RemoveTodo): {
+        return state.filter(x => x.id !== action.payload);
+      }
+
+      default:
+        return state;
+    }
+  },
+});
+
+
