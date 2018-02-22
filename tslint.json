@@ -47,6 +47,7 @@
       "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case", "allow-leading-underscore"],
       // tslint-react
       "jsx-no-lambda": false,
-      "jsx-no-multiline-js": false
+      "jsx-no-multiline-js": false,
+      "no-console": [false, "log", "error"]
     }
   }
