@@ -15,7 +15,7 @@ class AddTodo extends React.Component<DispatchFromProps, State> {
 
     constructor(props: DispatchFromProps) {
         super(props);
-        this.state = {text: 'Hitesh'};
+        this.state = {text: ''};
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -39,7 +39,9 @@ const mapStateToProps = (state: State) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>): DispatchFromProps => ({
     handleClick: (text: string) => {
-        dispatch(countersActions.AddTodo(text));
+        if (text !== '') {
+            dispatch(countersActions.AddTodo(text));
+        }
     },
 });
 

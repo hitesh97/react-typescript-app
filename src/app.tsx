@@ -23,7 +23,7 @@ export class App extends React.Component<Props, {}> {
             exact={true}
             path="/"
             render={() => (
-              <ListView title="List of counters" >
+              <ListView title="List of TODOs" >
                 <TodoManager />
               </ListView>
             )}
