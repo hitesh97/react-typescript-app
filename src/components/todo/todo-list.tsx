@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { connect, Dispatch } from 'react-redux';
 import {ITodo} from '../../features/todo/interfaces';
 import styles from '../../styles/todo-list.css';
 

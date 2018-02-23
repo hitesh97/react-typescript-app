@@ -25,7 +25,6 @@ class AddTodo extends React.Component<DispatchFromProps, State> {
             <div>
                 <input name="input" onChange={this.handleChange} value={this.state.text} />
                 <button onClick={() => handleClick(this.state.text)} >Add</button>
-                <span>{this.state.text}</span>
             </div>
         );
     }

@@ -6,7 +6,6 @@ import { Route } from 'react-router-dom';
 import { History } from 'history';
 
 import { ListView } from 'Components/list-view';
-import { Counter } from 'Components/counter';
 import { TodoManager } from 'Components/todo/todo-manager';
 
 interface Props {
@@ -25,7 +24,6 @@ export class App extends React.Component<Props, {}> {
             path="/"
             render={() => (
               <ListView title="List of counters" >
-                <Counter />
                 <TodoManager />
               </ListView>
             )}

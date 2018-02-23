@@ -96,6 +96,17 @@ module.exports = (env = {}) => {
           include: [PATHS.src],
           use: { loader: 'json-loader' },
         },
+        // // SCSS processing
+        // {
+        //   test: /\.scss$/,
+        //   use: [{
+        //       loader: "style-loader" // creates style nodes from JS strings
+        //   }, {
+        //       loader: "css-loader" // translates CSS into CommonJS
+        //   }, {
+        //       loader: "sass-loader" // compiles Sass to CSS
+        //   }]
+        // },
         // // css
         // {
         //   test: /\.css$/,
