@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
 import * as countersActions from '../../features/counters/actions';
-// import {rootReducer} from '../../features/root-reducer';
 import { RootAction } from 'Features/root-action';
-// import { ToDoState} from '../../features/counters/reducer';
 
 interface DispatchFromProps {
   handleClick: (text: string) => void;
