@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect, Dispatch } from 'react-redux';
-import * as countersActions from '../../features/counters/actions';
+import * as TodoActions from '../../features/counters/actions';
 import { RootAction } from 'Features/root-action';
 
 interface DispatchFromProps {
@@ -40,7 +40,7 @@ const mapStateToProps = (state: State) => ({
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>): DispatchFromProps => ({
     handleClick: (text: string) => {
         if (text !== '') {
-            dispatch(countersActions.AddTodo(text));
+            dispatch(TodoActions.AddTodo(text));
         }
     },
 });

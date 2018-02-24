@@ -10,7 +10,7 @@ import { App } from './app';
 import { store, browserHistory, epicMiddleware } from './store';
 
 const renderRoot = (app: JSX.Element) => {
-  ReactDOM.render(app, document.getElementById('root'));
+  ReactDOM.render<App>(app, document.getElementById('root'));
 };
 
 if (process.env.NODE_ENV === 'production') {

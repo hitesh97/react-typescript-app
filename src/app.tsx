@@ -4,6 +4,8 @@ import { Store } from 'redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { Route } from 'react-router-dom';
 import { History } from 'history';
+// tslint:disable-next-line:no-import-side-effect
+import './styles/app.scss';
 
 import { ListView } from 'Components/list-view';
 import { TodoManager } from 'Components/todo/todo-manager';

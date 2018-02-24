@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PATHS = {
   root: path.resolve(__dirname, '..'),
@@ -90,23 +91,21 @@ module.exports = (env = {}) => {
             ]
           ),
         },
+        // SCSS
+        {
+          test: /\.(css|sass|scss)$/,
+          include: [PATHS.src],
+          loader: ExtractTextPlugin.extract({
+            fallback:'style-loader',
+            use: ['css-loader', 'sass-loader'],
+          }),
+        },
         // json
         {
           test: /\.json$/,
           include: [PATHS.src],
           use: { loader: 'json-loader' },
         },
-        // // SCSS processing
-        // {
-        //   test: /\.scss$/,
-        //   use: [{
-        //       loader: "style-loader" // creates style nodes from JS strings
-        //   }, {
-        //       loader: "css-loader" // translates CSS into CommonJS
-        //   }, {
-        //       loader: "sass-loader" // compiles Sass to CSS
-        //   }]
-        // },
         // // css
         // {
         //   test: /\.css$/,
@@ -159,6 +158,9 @@ module.exports = (env = {}) => {
         'process.env': {
           NODE_ENV: JSON.stringify(isDev ? 'development' : 'production'),
         },
+      }),
+      new ExtractTextPlugin({
+        filename: 'app_style.css'
       }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor',
