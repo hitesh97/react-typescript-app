@@ -2,18 +2,31 @@ import * as React from 'react';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
-import withStyles, { WithStyles, StyleRulesCallback } from 'material-ui/styles/withStyles';
+import { Theme, withStyles, WithStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import MenuIcon from 'material-ui-icons/Menu';
 
-interface Props {
+type Props = {
+    loginButtonText: string;
+};
+
+interface ITopBarState {
+    count: number;
 }
 
-class AppTopBar extends React.Component<Props & WithStyles<'root'| 'flex' | 'menuButton'>, {}> {
-    render() {
-        const {classes} = this.props;
+type PropsWithStyles = Props & WithStyles<'root'| 'flex' | 'menuButton'>;
 
+class AppTopBar extends React.Component<PropsWithStyles, {State: ITopBarState} > {
+    constructor(props: PropsWithStyles) {
+        super(props);
+    }
+    componentWillMount() {
+        this.setState({State: {count: 10}});
+    }
+
+    render() {
+        const {classes, loginButtonText} = this.props;
         return (
             <div className={classes.root}>
             <AppBar position="static" >
@@ -24,17 +37,15 @@ class AppTopBar extends React.Component<Props & WithStyles<'root'| 'flex' | 'men
             <Typography variant="title" color="inherit" className={classes.flex}>
                 BMUK Directory Material design
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit">{loginButtonText} {this.state.State.count}</Button>
             </Toolbar>
             </AppBar>
             </div>
         );
     }
-
 }
 
-const styles = {
-    classes: {
+const styles = (theme: Theme) => ({
     root: {
         flexGrow: 1,
       },
@@ -45,7 +56,6 @@ const styles = {
         marginLeft: -12,
         marginRight: 20,
       },
-    },
-  };
+  });
 
-export default withStyles(styles.classes)<Props>(AppTopBar);
+export default withStyles(styles)<Props>(AppTopBar);

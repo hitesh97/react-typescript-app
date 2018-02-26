@@ -10,7 +10,7 @@ export class MainPage extends React.Component<MainPageProps & WithStyles<'root'>
   render() {
     return (
       <>
-        <AppTopBar />
+        <AppTopBar loginButtonText="Hitesh" />
       </>
     );
   }
