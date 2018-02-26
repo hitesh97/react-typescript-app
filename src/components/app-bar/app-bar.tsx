@@ -6,27 +6,28 @@ import { Theme, withStyles, WithStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import MenuIcon from 'material-ui-icons/Menu';
+import { connect, Dispatch } from 'react-redux';
+import { RootAction } from 'Features/root-action';
+import * as TodoActions from '../../features/counters/actions';
 
 type Props = {
     loginButtonText: string;
 };
-
+interface DispatchFromProps {
+    handleClick: () => void;
+}
 interface ITopBarState {
-    count: number;
 }
 
-type PropsWithStyles = Props & WithStyles<'root'| 'flex' | 'menuButton'>;
+type PropsWithStyles = Props & DispatchFromProps & WithStyles<'root'| 'flex' | 'menuButton'>;
 
 class AppTopBar extends React.Component<PropsWithStyles, {State: ITopBarState} > {
     constructor(props: PropsWithStyles) {
         super(props);
     }
-    componentWillMount() {
-        this.setState({State: {count: 10}});
-    }
 
     render() {
-        const {classes, loginButtonText} = this.props;
+        const {classes, loginButtonText, handleClick} = this.props;
         return (
             <div className={classes.root}>
             <AppBar position="static" >
@@ -37,7 +38,7 @@ class AppTopBar extends React.Component<PropsWithStyles, {State: ITopBarState} >
             <Typography variant="title" color="inherit" className={classes.flex}>
                 BMUK Directory Material design
             </Typography>
-            <Button color="inherit">{loginButtonText} {this.state.State.count}</Button>
+            <Button color="inherit" onClick={() => handleClick()}>{loginButtonText}</Button>
             </Toolbar>
             </AppBar>
             </div>
@@ -58,4 +59,18 @@ const styles = (theme: Theme) => ({
       },
   });
 
-export default withStyles(styles)<Props>(AppTopBar);
+const mapStateToProps = (state: ITopBarState) => ({
+});
+const mapDispatchToProps = (dispatch: Dispatch<RootAction>): DispatchFromProps => ({
+    handleClick: () => {
+        console.log('in handleClick');
+        dispatch(TodoActions.OpenDrawer());
+    },
+});
+
+const connectedComponent = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AppTopBar);
+
+export default withStyles(styles)<Props>(connectedComponent);

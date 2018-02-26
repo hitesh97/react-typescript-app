@@ -28,3 +28,22 @@ export const ToDoreducer = combineReducers <ToDoState, Action> ({
     }
   },
 });
+
+export type AppState = {
+  drawerIsOpen: boolean;
+};
+
+export const AppReducer = combineReducers <AppState, Action> ({
+  drawerIsOpen: (state: boolean = false, action: any) => {
+    switch (action.type) {
+      case getType(todoActions.OpenDrawer): {
+       return true;
+      }
+      case getType(todoActions.CloseDrawer): {
+        return false;
+      }
+      default:
+      return false;
+    }
+  },
+});

@@ -3,7 +3,8 @@ import withStyles, { WithStyles, StyleRulesCallback } from 'material-ui/styles/w
 import withRoot from '../../src/withRoot';
 import AppTopBar from '../components/app-bar/app-bar';
 import TodoManager from './todo/todo-manager';
-import AppDrawer from '../components/app-drawer/app-drawer';
+// import AppDrawer from '../components/app-drawer/app-drawer';
+import AppDrawerContainer from '../components/app-drawer/app-drawer-container';
 
 interface MainPageProps {
 }
@@ -14,7 +15,7 @@ export class MainPage extends React.Component<MainPageProps & WithStyles<'root'>
       <>
         <AppTopBar loginButtonText="Hitesh" />
         <TodoManager />
-        <AppDrawer />
+        <AppDrawerContainer />
       </>
     );
   }

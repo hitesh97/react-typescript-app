@@ -6,10 +6,11 @@ import Divider from 'material-ui/Divider';
 import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
 type Props = {
+    open: boolean;
+    handleClick: () => void;
 };
 
 interface ITopBarState {
-    open: boolean;
 }
 
 type PropsWithStyles = Props & WithStyles<'list'>;
@@ -18,11 +19,9 @@ class AppDrawer extends React.Component<PropsWithStyles, ITopBarState > {
     constructor(props: PropsWithStyles) {
         super(props);
     }
-    componentWillMount() {
-        this.setState({open: true});
-    }
+
     render() {
-        const {classes} = this.props;
+        const {classes, open, handleClick} = this.props;
         const sideList = (
             <div className={classes.list}>
               <List>{mailFolderListItems}</List>
@@ -32,7 +31,7 @@ class AppDrawer extends React.Component<PropsWithStyles, ITopBarState > {
           );
         return (
             <div>
-                <Drawer open={this.state.open} >
+                <Drawer open={open} onClick={() => handleClick()}>
                     {sideList}
                 </Drawer>
             </div>
@@ -42,7 +41,7 @@ class AppDrawer extends React.Component<PropsWithStyles, ITopBarState > {
 
 const styles = (theme: Theme) => ({
     list: {
-        width: 250,
+        width: 200,
       },
   });
 
