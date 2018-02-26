@@ -19,7 +19,7 @@ interface DispatchFromProps {
 
 type PropsWithStyles = Props & DispatchFromProps & WithStyles<'list'>;
 
-class AppDrawer extends React.Component<PropsWithStyles, {}> {
+class AppDrawer extends React.Component<PropsWithStyles, {State: RootState} > {
     constructor(props: PropsWithStyles) {
         super(props);
     }
@@ -61,9 +61,9 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>): DispatchFromProps =
     },
 });
 
-const connectedComponent = connect(
+const cc1 = connect(
     mapStateToProps,
     mapDispatchToProps
 )(AppDrawer);
 
-export default withStyles(styles)<Props>(connectedComponent);
+export default withStyles(styles)<Props>(cc1);
