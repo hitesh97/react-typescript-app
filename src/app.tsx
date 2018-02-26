@@ -7,8 +7,10 @@ import { History } from 'history';
 // tslint:disable-next-line:no-import-side-effect
 import './styles/app.scss';
 
-import { ListView } from 'Components/list-view';
-import { TodoManager } from 'Components/todo/todo-manager';
+// import { ListView } from 'Components/list-view';
+// import { TodoManager } from 'Components/todo/todo-manager';
+// import AppTopBar from '../src/components/app-bar/app-bar';
+import MainPage from './components/main-page';
 
 interface Props {
   store: Store<any>;
@@ -25,9 +27,9 @@ export class App extends React.Component<Props, {}> {
             exact={true}
             path="/"
             render={() => (
-              <ListView title="List of TODOs" >
-                <TodoManager />
-              </ListView>
+                <div>
+                  <MainPage/>
+                </div>
             )}
           />
         </ConnectedRouter>

@@ -1,20 +1,27 @@
 import * as React from 'react';
 import {ITodo} from '../../features/todo/interfaces';
-import FaBirthday from 'react-icons/lib/fa/birthday-cake';
-import FaBook from 'react-icons/lib/fa/book';
+import Button from 'material-ui/Button';
+import IconButton from 'material-ui/IconButton';
+import Delete from 'material-ui-icons/Delete';
+import withStyles, { WithStyles, StyleRulesCallback } from 'material-ui/styles/withStyles';
+import withRoot from '../../../src/withRoot';
 
 interface Props {
     todos: ITodo[];
 }
 
-export class TodoList extends React.Component<Props, {}> {
+class TodoList extends React.Component<Props & WithStyles<'root'>, {}> {
     renderItems(items: ITodo[]): any {
         return (items.map((todo) => {
         return (
             <i key={todo.id}>
-                <FaBirthday />
-                <FaBook />
-                {todo.text}
+                {todo.text}&nbsp;
+                <IconButton>
+                    <Delete />
+                </IconButton>
+                <Button variant="raised" color="primary" >
+                    Super Secret Password
+                </Button>
             </i>
         );
         }));
@@ -26,3 +33,11 @@ export class TodoList extends React.Component<Props, {}> {
             </ul>);
     }
 }
+const styles: StyleRulesCallback<'root'> = theme => ({
+    root: {
+      textAlign: 'center',
+      paddingTop: theme.spacing.unit * 20,
+    },
+  });
+
+export default withRoot(withStyles(styles)<Props>(TodoList));

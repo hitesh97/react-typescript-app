@@ -100,6 +100,14 @@ module.exports = (env = {}) => {
             use: ['css-loader', 'sass-loader'],
           }),
         },
+        {
+          test: /\.(svg|woff|woff2|eot|ttf|otf)$/,
+          loader: 'url-loader',
+          options: {
+              name: '[name].[ext]',
+              limit: 50,
+          },
+        },
         // json
         {
           test: /\.json$/,

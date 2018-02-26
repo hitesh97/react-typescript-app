@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {TodoList} from './todo-list';
+import * as TodoList from './todo-list';
 import {RootState} from '../../features/root-reducer';
 
 const mapStateToProps = (state: RootState) => {
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch: any) => {
 export const TodoListContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-  )(TodoList);
+  )(TodoList.default);
