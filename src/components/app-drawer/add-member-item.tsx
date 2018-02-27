@@ -10,10 +10,8 @@ import {RootState} from '../../features/root-reducer';
 import { RootAction } from 'Features/root-action';
 import * as TodoActions from '../../features/counters/actions';
 import { connect, Dispatch } from 'react-redux';
-import AddMemberItem from './add-member-item';
 
 interface Props  {
-    open: boolean;
 }
 
 interface DispatchFromProps {
@@ -25,53 +23,43 @@ interface ITopBarState {
 
 type PropsWithStyles = Props & DispatchFromProps & WithStyles<'list'>;
 
-class AppDrawer extends React.Component<PropsWithStyles, ITopBarState & RootState> {
+class AddMemberItem extends React.Component<PropsWithStyles, ITopBarState> {
     constructor(props: PropsWithStyles) {
         super(props);
     }
-
     render() {
-        const {classes, open, handleClick} = this.props;
-        const sideList = (
-            <div className={classes.list}>
-              <List>{mailFolderListItems}</List>
-              <Divider />
-              <List>{otherMailFolderListItems}</List>
-              <Divider />
-              <List>
-                <AddMemberItem />
-              </List>
-            </div>
-          );
+        const {classes, handleClick} = this.props;
         return (
             <div>
-                <Drawer open={open} onClick={() => handleClick()}>
-                    {sideList}
-                </Drawer>
-            </div>
+            <ListItem button={true} onClick={() => handleClick()} >
+            <ListItemIcon>
+                <AddAPhoto/>
+            </ListItemIcon>
+            <ListItemText primary="Add Member" />
+            </ListItem>
+           </div>
         );
     }
 }
 
 const styles = (theme: Theme) => ({
     list: {
-        width: 200,
       },
   });
 
-const mapStateToProps = (state: ITopBarState & RootState): any => ({
-    open: state.AppReducer.drawerIsOpen,
+const mapStateToProps = (state: ITopBarState): any => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>): DispatchFromProps => ({
     handleClick: () => {
-        dispatch(TodoActions.CloseDrawer());
+        console.log('Add Member');
+        dispatch(TodoActions.AddMember());
     },
 });
 
 const cc1 = connect(
     mapStateToProps,
     mapDispatchToProps
-)(AppDrawer);
+)(AddMemberItem);
 
 export default withStyles(styles)<Props>(cc1);

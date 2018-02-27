@@ -3,7 +3,8 @@ import {
   ADD_TODO,
   REMOVE_TODO,
   OPEN_DRAWER,
-  CLOSE_DRAWER
+  CLOSE_DRAWER,
+  ADD_MEMBER
 } from './action-constants';
 
 export const AddTodo = createAction(ADD_TODO, (text: string) => ({
@@ -24,4 +25,8 @@ export const OpenDrawer = createAction(OPEN_DRAWER, () => ({
 export const CloseDrawer = createAction(CLOSE_DRAWER, () => ({
   type: CLOSE_DRAWER,
   payload: false,
+}));
+
+export const AddMember = createAction(ADD_MEMBER, () => ({
+  type: ADD_MEMBER,
 }));
