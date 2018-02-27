@@ -14,7 +14,7 @@ export class MainPage extends React.Component<MainPageProps & WithStyles<'root'>
       <>
         <AppTopBar loginButtonText="Hitesh" />
         <TodoManager />
-        <AppDrawer />
+        <AppDrawer open={false} />
       </>
     );
   }
