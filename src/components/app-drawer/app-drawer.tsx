@@ -9,17 +9,20 @@ import { RootAction } from 'Features/root-action';
 import * as TodoActions from '../../features/counters/actions';
 import { connect, Dispatch } from 'react-redux';
 
-type Props = {
+interface Props  {
     open: boolean;
-};
+}
 
 interface DispatchFromProps {
     handleClick: () => void;
 }
 
+interface ITopBarState {
+}
+
 type PropsWithStyles = Props & DispatchFromProps & WithStyles<'list'>;
 
-class AppDrawer extends React.Component<PropsWithStyles, {State: RootState} > {
+class AppDrawer extends React.Component<PropsWithStyles, ITopBarState & RootState> {
     constructor(props: PropsWithStyles) {
         super(props);
     }
@@ -49,11 +52,9 @@ const styles = (theme: Theme) => ({
       },
   });
 
-const mapStateToProps = (state: RootState) => {
-    return {
-      open: state.AppReducer.drawerIsOpen,
-      };
-    };
+const mapStateToProps = (state: ITopBarState & RootState): any => ({
+    open: state.AppReducer.drawerIsOpen,
+});
 
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>): DispatchFromProps => ({
     handleClick: () => {
