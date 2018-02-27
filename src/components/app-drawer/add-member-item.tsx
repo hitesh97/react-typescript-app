@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Theme, withStyles, WithStyles } from 'material-ui/styles';
-import Drawer from 'material-ui/Drawer';
-import List from 'material-ui/List';
-import Divider from 'material-ui/Divider';
+// import Drawer from 'material-ui/Drawer';
+// import List from 'material-ui/List';
+// import Divider from 'material-ui/Divider';
 import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
 import AddAPhoto from 'material-ui-icons/AddAPhoto';
-import { mailFolderListItems, otherMailFolderListItems } from './tileData';
-import {RootState} from '../../features/root-reducer';
+// import { mailFolderListItems, otherMailFolderListItems } from './tileData';
+// import {RootState} from '../../features/root-reducer';
 import { RootAction } from 'Features/root-action';
 import * as TodoActions from '../../features/counters/actions';
 import { connect, Dispatch } from 'react-redux';
@@ -28,7 +28,7 @@ class AddMemberItem extends React.Component<PropsWithStyles, ITopBarState> {
         super(props);
     }
     render() {
-        const {classes, handleClick} = this.props;
+        const {handleClick} = this.props;
         return (
             <div>
             <ListItem button={true} onClick={() => handleClick()} >

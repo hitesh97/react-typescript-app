@@ -3,8 +3,6 @@ import { Theme, withStyles, WithStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import List from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import AddAPhoto from 'material-ui-icons/AddAPhoto';
 import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 import {RootState} from '../../features/root-reducer';
 import { RootAction } from 'Features/root-action';
