@@ -9,7 +9,7 @@ import MenuIcon from 'material-ui-icons/Menu';
 import { connect, Dispatch } from 'react-redux';
 import { RootAction } from 'Features/root-action';
 import * as TodoActions from '../../features/counters/actions';
-import compose from 'recompose/compose';
+import * as recompose from 'recompose';
 
 type Props = {
     loginButtonText: string;
@@ -69,7 +69,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>): DispatchFromProps =
     },
 });
 
-export default compose(
+export default recompose.compose(
     withStyles(styles),
     connect(mapStateToProps, mapDispatchToProps)
   )(AppTopBar);
