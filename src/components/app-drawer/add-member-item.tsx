@@ -10,6 +10,7 @@ import AddAPhoto from 'material-ui-icons/AddAPhoto';
 import { RootAction } from 'Features/root-action';
 import * as TodoActions from '../../features/counters/actions';
 import { connect, Dispatch } from 'react-redux';
+import compose from 'recompose/compose';
 
 interface Props  {
 }
@@ -57,9 +58,7 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>): DispatchFromProps =
     },
 });
 
-const cc1 = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AddMemberItem);
-
-export default withStyles(styles)<Props>(cc1);
+export default compose(
+    withStyles(styles),
+    connect(mapStateToProps, mapDispatchToProps)
+  )(AddMemberItem);

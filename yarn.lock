@@ -79,6 +79,10 @@
   version "9.4.6"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-9.4.6.tgz#d8176d864ee48753d053783e4e463aec86b8d82e"
 
+"@types/prop-types@^15.5.2":
+  version "15.5.2"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.2.tgz#3c6b8dceb2906cc87fe4358e809f9d20c8d59be1"
+
 "@types/react-addons-linked-state-mixin@*", "@types/react-addons-linked-state-mixin@^0.14.19":
   version "0.14.19"
   resolved "https://registry.yarnpkg.com/@types/react-addons-linked-state-mixin/-/react-addons-linked-state-mixin-0.14.19.tgz#7ef00a5618a089da4a99e1f58c9aa4c1781d46d5"
@@ -150,6 +154,12 @@
 "@types/react@*", "@types/react@16.0.34":
   version "16.0.34"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.34.tgz#7a8f795afd8a404a9c4af9539b24c75d3996914e"
+
+"@types/recompose@^0.24.5":
+  version "0.24.5"
+  resolved "https://registry.yarnpkg.com/@types/recompose/-/recompose-0.24.5.tgz#5cc94c4c92e310c96993c70f7ef5915ca19a1eff"
+  dependencies:
+    "@types/react" "*"
 
 "@types/serve-static@*":
   version "1.13.1"
