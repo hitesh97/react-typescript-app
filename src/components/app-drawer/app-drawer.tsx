@@ -9,7 +9,6 @@ import { RootAction } from 'Features/root-action';
 import * as TodoActions from '../../features/counters/actions';
 import { connect, Dispatch } from 'react-redux';
 import AddMemberItem from './add-member-item';
-import * as recompose from 'recompose';
 
 interface Props  {
     open: boolean;
@@ -68,7 +67,9 @@ const mapDispatchToProps = (dispatch: Dispatch<RootAction>): DispatchFromProps =
     },
 });
 
-export default recompose.compose(
-    withStyles(styles),
-    connect(mapStateToProps, mapDispatchToProps)
-  )(AppDrawer);
+const cc1 = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AppDrawer);
+
+export default withStyles(styles)<Props>(cc1);
