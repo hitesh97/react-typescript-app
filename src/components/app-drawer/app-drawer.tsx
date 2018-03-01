@@ -42,11 +42,9 @@ class AppDrawer extends React.Component<PropsWithStyles, ITopBarState & RootStat
             </div>
           );
         return (
-            <div>
-                <Drawer open={open} onClick={() => handleClick()}>
-                    {sideList}
-                </Drawer>
-            </div>
+            <Drawer id="mainDrawer" open={open} onClick={() => handleClick()}>
+                {sideList}
+            </Drawer>
         );
     }
 }

@@ -1,11 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AppDrawer With prop Open true should match a snapshot 1`] = `
+exports[`AppDrawer When Drawer is Open And drawer is clicked then it should close drawer 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <WithStyles(Connect(AppDrawer))
+    onClick={[MockFunction]}
     open={true}
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -22,7 +33,16 @@ ShallowWrapper {
       "classes": Object {
         "list": "Connect-AppDrawer--list-2",
       },
+      "onClick": [MockFunction],
       "open": true,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
     },
     "ref": null,
     "rendered": null,
@@ -37,7 +57,16 @@ ShallowWrapper {
         "classes": Object {
           "list": "Connect-AppDrawer--list-2",
         },
+        "onClick": [MockFunction],
         "open": true,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
       },
       "ref": null,
       "rendered": null,
