@@ -6,6 +6,7 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import MenuIcon from 'material-ui-icons/Menu';
 import AccountCircle from 'material-ui-icons/AccountCircle';
+import MoreVert from 'material-ui-icons/MoreVert';
 import { connect, Dispatch } from 'react-redux';
 import { RootAction } from 'Features/root-action';
 import * as TodoActions from '../../features/counters/actions';
@@ -62,6 +63,7 @@ class AppTopBar extends React.Component<PropsWithStyles, ITopBarState> {
                 className={classes.menuButton}
                 onClick={this.onUserMenuClick}
             >
+                <MoreVert />
                 <AccountCircle />
             </IconButton>
             </Toolbar>
