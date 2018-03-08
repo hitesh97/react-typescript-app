@@ -2,8 +2,9 @@ import * as React from 'react';
 import withStyles, { WithStyles, StyleRulesCallback } from 'material-ui/styles/withStyles';
 import withRoot from '../../src/withRoot';
 import AppTopBar from '../components/app-bar/app-bar';
-import TodoManager from './todo/todo-manager';
+import {TodoManager, TodoSample} from './todo/todo-manager';
 import AppDrawer from '../components/app-drawer/app-drawer';
+import { Route } from 'react-router-dom';
 
 interface MainPageProps {
 }
@@ -13,7 +14,20 @@ export class MainPage extends React.Component<MainPageProps & WithStyles<'root'>
     return (
       <>
         <AppTopBar loginButtonText="Hitesh" />
-        <TodoManager />
+        <Route
+            exact={true}
+            path={'/todo'}
+            render={(props) => (
+              <TodoManager {...props} />
+          )}
+        />
+        <Route
+            exact={true}
+            path={'/todo/sample'}
+            render={(props) => (
+              <TodoSample {...props} />
+          )}
+        />
         <AppDrawer open={false} />
       </>
     );

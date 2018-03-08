@@ -63,7 +63,7 @@ const mapStateToProps = (state: ITopBarState) => ({
 });
 const mapDispatchToProps = (dispatch: Dispatch<RootAction>): DispatchFromProps => ({
     handleClick: () => {
-        console.log('in handleClick');
+        // console.log('in handleClick');
         dispatch(TodoActions.OpenDrawer());
     },
 });

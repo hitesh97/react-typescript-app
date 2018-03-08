@@ -11,6 +11,7 @@ import { RootAction } from 'Features/root-action';
 import * as TodoActions from '../../features/counters/actions';
 import { connect, Dispatch } from 'react-redux';
 import * as recompose from 'recompose';
+import { Link} from 'react-router-dom';
 
 interface Props  {
 }
@@ -38,6 +39,7 @@ class AddMemberItem extends React.Component<PropsWithStyles, ITopBarState> {
             </ListItemIcon>
             <ListItemText primary="Add Member" />
             </ListItem>
+            <Link to="/todo">Homes</Link>
            </div>
         );
     }
