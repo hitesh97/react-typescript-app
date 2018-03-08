@@ -2,13 +2,13 @@ import * as React from 'react';
 import { Theme, withStyles, WithStyles } from 'material-ui/styles';
 import Drawer from 'material-ui/Drawer';
 import List from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import { mailFolderListItems, otherMailFolderListItems } from './tileData';
+// import Divider from 'material-ui/Divider';
+// import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 import {RootState} from '../../features/root-reducer';
 import { RootAction } from 'Features/root-action';
 import * as TodoActions from '../../features/counters/actions';
 import { connect, Dispatch } from 'react-redux';
-import AddMemberItem from './add-member-item';
+import MenuItemList from './add-member-item';
 
 interface Props  {
     open: boolean;
@@ -32,12 +32,8 @@ class AppDrawer extends React.Component<PropsWithStyles, ITopBarState & RootStat
         const {classes, open, handleClick} = this.props;
         const sideList = (
             <div className={classes.list}>
-              <List>{mailFolderListItems}</List>
-              <Divider />
-              <List>{otherMailFolderListItems}</List>
-              <Divider />
               <List>
-                <AddMemberItem />
+                <MenuItemList />
               </List>
             </div>
           );

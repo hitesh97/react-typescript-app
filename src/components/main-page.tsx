@@ -21,14 +21,14 @@ export class MainPage extends React.Component<MainPageProps & WithStyles<'root'>
           <Grid item={true} xs={10}>
             <Route
                   exact={true}
-                  path={'/todo'}
+                  path={'/members/add'}
                   render={(props) => (
                     <TodoManager {...props} />
                 )}
             />
             <Route
                   exact={true}
-                  path={'/todo/sample'}
+                  path={'/members/sample'}
                   render={(props) => (
                     <TodoSample {...props} />
                 )}
